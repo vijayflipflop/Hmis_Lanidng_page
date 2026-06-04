@@ -1,0 +1,8 @@
+{
+  "name": "HealthMed",
+  "description": "One Connected Healthcare Management Platform for Modern Healthcare Operations. Beautiful, scalable and highly performant platform for managing patient care, diagnostics, billing, pharmacy, and clinic workflows.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
