@@ -3,8 +3,9 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
+import { motion, AnimatePresence } from 'motion/react';
 // @ts-expect-error - image asset type declaration may be missing
 import logoImg from '../../assets/images/logo.png';
 
@@ -25,6 +26,18 @@ export function Logo({ isDark = false }: { isDark?: boolean }) {
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+
+  // Lock scrolling when mobile menu is open
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [isOpen]);
 
   const navLinks = [
     { label: 'Home', href: '#home', active: true },
@@ -61,7 +74,7 @@ export default function Navbar() {
             ))}
           </nav>
 
-          {/* Right Action Button */}
+          {/* Right Action Button (Desktop Only) */}
           <div className="hidden md:flex items-center">
             <a
               href="#book-a-call"
@@ -77,50 +90,112 @@ export default function Navbar() {
             <button
               onClick={() => setIsOpen(!isOpen)}
               type="button"
-              className="inline-flex items-center justify-center p-2 rounded-md text-brand-gray-600 hover:text-brand-black hover:bg-brand-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-brand-blue-500"
+              className="inline-flex items-center justify-center p-2 rounded-md text-brand-gray-600 hover:text-brand-black hover:bg-brand-gray-100 focus:outline-none"
               aria-controls="mobile-menu"
               aria-expanded={isOpen}
               id="nav-btn-mobile-toggle"
             >
               <span className="sr-only">Open main menu</span>
-              {isOpen ? <X className="h-6 w-6" id="icon-close" /> : <Menu className="h-6 w-6" id="icon-menu" />}
+              <AnimatePresence mode="wait">
+                <motion.div
+                  key={isOpen ? 'close-icon' : 'menu-icon'}
+                  initial={{ rotate: -90, opacity: 0 }}
+                  animate={{ rotate: 0, opacity: 1 }}
+                  exit={{ rotate: 90, opacity: 0 }}
+                  transition={{ duration: 0.15 }}
+                >
+                  {isOpen ? <X className="h-6 w-6" id="icon-close" /> : <Menu className="h-6 w-6" id="icon-menu" />}
+                </motion.div>
+              </AnimatePresence>
             </button>
           </div>
         </div>
       </div>
 
-      {/* Mobile Navigation Panel */}
-      {isOpen && (
-        <div className="md:hidden bg-white border-b border-brand-gray-200" id="mobile-menu">
-          <div className="px-2 pt-2 pb-4 space-y-1 sm:px-3">
-            {navLinks.map((link) => (
-              <a
-                key={link.label}
-                href={link.href}
+      {/* Mobile Navigation Panel (Full Screen Cover overlay with beautiful staggered animations) */}
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -10 }}
+            transition={{ duration: 0.3, ease: 'easeInOut' }}
+            className="fixed inset-0 z-[100] h-screen w-screen bg-white md:hidden flex flex-col"
+            id="mobile-menu"
+          >
+            {/* Overlay Header containing Logo and Close Button to align with page header layout */}
+            <div className="h-20 border-b border-brand-gray-200 px-4 sm:px-6 flex items-center justify-between flex-shrink-0">
+              <Logo />
+              <button
                 onClick={() => setIsOpen(false)}
-                className={`block px-3 py-2.5 rounded-md text-base font-medium transition-colors ${
-                  link.active
-                    ? 'bg-brand-blue-50 text-brand-blue-500 font-semibold'
-                    : 'text-brand-gray-600 hover:bg-brand-gray-50 hover:text-brand-black'
-                }`}
-                id={`mobile-nav-link-${link.label.toLowerCase()}`}
+                type="button"
+                className="inline-flex items-center justify-center p-2 rounded-md text-brand-gray-600 hover:text-brand-black hover:bg-brand-gray-100 focus:outline-none"
+                id="nav-btn-mobile-overlay-close"
               >
-                {link.label}
-              </a>
-            ))}
-            <div className="pt-4 pb-2 border-t border-brand-gray-100 px-3">
-              <a
-                href="#book-a-call"
-                onClick={() => setIsOpen(false)}
-                className="flex items-center justify-center w-full px-4 py-3 bg-brand-black hover:bg-brand-gray-800 text-white font-medium rounded-lg shadow-sm"
-                id="mobile-nav-btn-book"
-              >
-                Book a Call
-              </a>
+                <motion.div
+                  initial={{ rotate: -90, opacity: 0 }}
+                  animate={{ rotate: 0, opacity: 1 }}
+                  transition={{ duration: 0.2 }}
+                >
+                  <X className="h-6 w-6" />
+                </motion.div>
+              </button>
             </div>
-          </div>
-        </div>
-      )}
+
+            {/* Overlay Navigation list with one-by-one sequential staggered flow */}
+            <div className="flex-1 flex flex-col justify-between px-8 sm:px-12 py-16">
+              <nav className="flex flex-col space-y-8">
+                {navLinks.map((link, idx) => (
+                  <motion.div
+                    key={link.label}
+                    initial={{ opacity: 0, x: -25 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{
+                      delay: idx * 0.08,
+                      duration: 0.4,
+                      ease: [0.16, 1, 0.3, 1] // Custom refined spring-like easeOut
+                    }}
+                  >
+                    <a
+                      href={link.href}
+                      onClick={() => setIsOpen(false)}
+                      className={`text-2xl font-serif tracking-tight block py-1.5 transition-all duration-300 ${
+                        link.active
+                          ? 'text-brand-blue-500 font-normal italic'
+                          : 'text-brand-gray-800 hover:text-brand-black hover:translate-x-3'
+                      }`}
+                      id={`mobile-nav-link-${link.label.toLowerCase()}`}
+                    >
+                      {link.label}
+                    </a>
+                  </motion.div>
+                ))}
+              </nav>
+
+              {/* Staggered action button in mobile navigation panel */}
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{
+                  delay: navLinks.length * 0.08 + 0.1,
+                  duration: 0.5,
+                  ease: [0.16, 1, 0.3, 1]
+                }}
+                className="pt-8 border-t border-brand-gray-100 flex flex-col space-y-4"
+              >
+                <a
+                  href="#book-a-call"
+                  onClick={() => setIsOpen(false)}
+                  className="flex items-center justify-center w-full px-6 py-4 bg-brand-black hover:bg-brand-gray-800 text-white font-semibold text-lg rounded-lg shadow-sm hover:shadow transition-all duration-200"
+                  id="mobile-nav-btn-book"
+                >
+                  Book a Call
+                </a>
+              </motion.div>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </header>
   );
 }

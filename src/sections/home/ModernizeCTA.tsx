@@ -27,7 +27,7 @@ export default function ModernizeCTA() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="relative bg-brand-blue-900 text-white rounded-3xl px-8 py-16 md:py-20 overflow-hidden shadow-2xl border border-white/5"
+          className="relative bg-brand-blue-900 text-white px-8 py-16 md:py-20 overflow-hidden shadow-2xl border border-white/5"
           id="modernize-cta-banner"
          >
           {/* Subtle glowing dark blue/cyan radial lights */}

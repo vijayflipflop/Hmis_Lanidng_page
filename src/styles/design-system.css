@@ -245,7 +245,7 @@
 
   /* Badges components mappings */
   .badge-custom-dark {
-    @apply bg-brand-black py-1.5 px-4 text-white text-[11px] font-sans font-bold uppercase tracking-wider rounded-lg shadow-sm border border-brand-gray-800;
+    @apply bg-gradient-to-b from-[#151515] to-[#5B5B5B] py-1.5 px-4 text-white text-[11px] font-sans font-bold uppercase tracking-wider rounded-lg shadow-sm border border-brand-gray-700/60;
   }
   .badge-custom-glass {
     @apply border border-white/20 py-1.5 px-4 bg-white/10 text-white text-[11px] font-sans font-semibold uppercase tracking-wider rounded-lg shadow-sm;
