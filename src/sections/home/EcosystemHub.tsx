@@ -103,8 +103,7 @@ export default function EcosystemHub() {
               initial={{ opacity: 0, scale: 0.95 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
-              whileHover={{ scale: 1.05, transition: { duration: 0.2 } }}
-              className="absolute top-4 left-2 md:top-[12%] md:left-[8%] satellite-card group"
+              className="absolute top-4 left-2 md:top-[12%] md:left-[8%] satellite-card group select-none"
               id="node-hospitals"
             >
               <div className="p-2 rounded-xl bg-brand-blue-light text-brand-blue-accent transition-colors group-hover:bg-brand-blue-50">
@@ -118,8 +117,7 @@ export default function EcosystemHub() {
               initial={{ opacity: 0, scale: 0.95 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
-              whileHover={{ scale: 1.05, transition: { duration: 0.2 } }}
-              className="absolute top-4 right-2 md:top-[12%] md:right-[8%] satellite-card group"
+              className="absolute top-4 right-2 md:top-[12%] md:right-[8%] satellite-card group select-none"
               id="node-diagnostics"
             >
               <div className="p-2 rounded-xl bg-brand-blue-light text-brand-blue-accent transition-colors group-hover:bg-brand-blue-50">
@@ -133,8 +131,7 @@ export default function EcosystemHub() {
               initial={{ opacity: 0, scale: 0.95 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
-              whileHover={{ scale: 1.05, transition: { duration: 0.2 } }}
-              className="absolute bottom-4 left-2 md:bottom-[12%] md:left-[8%] satellite-card group"
+              className="absolute bottom-4 left-2 md:bottom-[12%] md:left-[8%] satellite-card group select-none"
               id="node-pharmacies"
             >
               <div className="p-2 rounded-xl bg-brand-blue-light text-brand-blue-accent transition-colors group-hover:bg-brand-blue-50">
@@ -148,8 +145,7 @@ export default function EcosystemHub() {
               initial={{ opacity: 0, scale: 0.95 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
-              whileHover={{ scale: 1.05, transition: { duration: 0.2 } }}
-              className="absolute bottom-4 right-2 md:bottom-[12%] md:right-[8%] satellite-card group"
+              className="absolute bottom-4 right-2 md:bottom-[12%] md:right-[8%] satellite-card group select-none"
               id="node-careteams"
             >
               <div className="p-2 rounded-xl bg-brand-blue-light text-brand-blue-accent transition-colors group-hover:bg-brand-blue-50">

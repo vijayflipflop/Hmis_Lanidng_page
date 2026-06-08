@@ -28,7 +28,11 @@ export default function Footer() {
               <img
                 src={logoImg}
                 alt="Healthmed Logo"
+                width={165}
+                height={44}
                 className="h-11 w-auto object-contain"
+                decoding="async"
+                loading="lazy"
                 referrerPolicy="no-referrer"
               />
             </div>

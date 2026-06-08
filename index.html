@@ -4,10 +4,176 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>HealthMed | One Intelligent Platform for Modern Healthcare Operations</title>
-    <!-- Google Fonts: Instrument Serif (Normal & Italic) and Inter (Normal, Medium, Semi-Bold, Bold) -->
+    
+    <!-- Core SEO Meta Tags -->
+    <meta name="description" content="HealthMed is a connected healthcare intelligence and operations platform. Optimize click-through, clinical workflows, patient schedules, digital records, and billing with advanced AI." />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://healthmed.example.com/" />
+    <link rel="manifest" href="/manifest.json" />
+    <meta name="theme-color" content="#2271e8" />
+
+    <!-- Open Graph Graph Tags -->
+    <meta property="og:title" content="HealthMed | Connected Healthcare Intelligence & Operations Platform" />
+    <meta property="og:description" content="Optimize clinical and administrative workflows, patient records, billing, and diagnostics through one modern, unified connected healthcare platform." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://healthmed.example.com/" />
+    <meta property="og:image" content="https://healthmed.example.com/assets/images/logo.png" />
+    <meta property="og:site_name" content="HealthMed" />
+
+    <!-- Twitter Card Graph Tags -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="HealthMed | Connected Healthcare Intelligence & Operations Platform" />
+    <meta name="twitter:description" content="Optimize clinical and administrative workflows using HealthMed's unified cloud-based intelligent system." />
+    <meta name="twitter:image" content="https://healthmed.example.com/assets/images/logo.png" />
+
+    <!-- Performance: Preconnect & Preload Critical Google Fonts and Hero Assets -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    
+    <!-- Preloading Hero Image directly for faster LCP/FCP rendering -->
+    <link rel="preload" href="/src/assets/images/hero.png" as="image" type="image/png" fetchpriority="high" />
+
+    <!-- Structured Data (JSON-LD Schemas) -->
+    <script type="application/ld+json">
+    [
+      {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "@id": "https://healthmed.example.com/#organization",
+        "name": "HealthMed",
+        "url": "https://healthmed.example.com/",
+        "logo": "https://healthmed.example.com/assets/images/logo.png",
+        "description": "HealthMed is an AI-powered, connected healthcare intelligence and operations platform designed to optimize medical workflows, patient records, billing, and diagnostics.",
+        "sameAs": [
+          "https://twitter.com/healthmed_hq",
+          "https://facebook.com/healthmed_hq",
+          "https://linkedin.com/company/healthmed_hq"
+        ]
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "@id": "https://healthmed.example.com/#website",
+        "name": "HealthMed",
+        "url": "https://healthmed.example.com/",
+        "description": "One Intelligent Platform for Modern Healthcare Operations.",
+        "publisher": {
+          "@id": "https://healthmed.example.com/#organization"
+        }
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "@id": "https://healthmed.example.com/#webpage",
+        "url": "https://healthmed.example.com/",
+        "name": "HealthMed | Connected Healthcare Intelligence & Operations Platform",
+        "description": "Optimize clinical and administrative workflows, patient records, billing, and diagnostics through one unified connected healthcare platform.",
+        "isPartOf": {
+          "@id": "https://healthmed.example.com/#website"
+        },
+        "about": {
+          "@id": "https://healthmed.example.com/#organization"
+        }
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "@id": "https://healthmed.example.com/#localbusiness",
+        "name": "HealthMed HQ",
+        "image": "https://healthmed.example.com/assets/images/logo.png",
+        "telephone": "+1-800-555-0199",
+        "priceRange": "$$$",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "100 Medical Plaza Dr",
+          "addressLocality": "San Francisco",
+          "addressRegion": "CA",
+          "postalCode": "94143",
+          "addressCountry": "US"
+        }
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "@id": "https://healthmed.example.com/#breadcrumb",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://healthmed.example.com/"
+          }
+        ]
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "Service",
+        "@id": "https://healthmed.example.com/#clinic-management",
+        "name": "Clinic Management Software (CMS)",
+        "serviceType": "Healthcare SaaS Software",
+        "provider": {
+          "@id": "https://healthmed.example.com/#organization"
+        },
+        "description": "Multi-user clinical software designed to cover clinic workflows, patient schedules, digital health records, and medical billing seamlessly."
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "@id": "https://healthmed.example.com/#faq",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Who can use HealthMed?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "HealthMed is built for hospitals, multi-specialty clinics, diagnostic laboratories, digital pharmacies, and custom healthcare providers who want to unify their end-to-end clinical and administrative workflows."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Does HealthMed support multi-location management?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes, HealthMed provides advanced multi-location, multi-tenant databases allowing group hospitals and chain clinics to synchronize patient records, billing data and inventory across different geographical sites."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Is HealthMed cloud-based?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Absolutely. HealthMed is built on high-availability cloud infrastructure, ensuring 99.9% uptime with end-to-end automatic daily updates and robust compliance guarantees."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can HealthMed integrate with third-party systems?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes, we provide fully-developed secure REST APIs and HL7/FHIR integration capabilities to allow easy synchronization with existing healthcare hardware, laboratories, and insurance frameworks."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Does HealthMed support EMR/EHR workflows?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes, EMR/EHR clinical charts, prescription tracking, and historical patient healthcare trends are natively integrated into our primary clinical interface module."
+            }
+          }
+        ]
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "ContactPage",
+        "@id": "https://healthmed.example.com/#contactpage",
+        "url": "https://healthmed.example.com/#contact",
+        "name": "Contact HealthMed Sales & Support",
+        "description": "Get in touch with the HealthMed team for product demonstrations, technical support, and partnership inquiries."
+      }
+    ]
+    </script>
     <style>
       /* Ensure scrollbars are premium-styled and minimal */
       ::-webkit-scrollbar {

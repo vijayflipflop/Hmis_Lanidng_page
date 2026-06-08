@@ -16,7 +16,10 @@ export function Logo({ isDark = false }: { isDark?: boolean }) {
         <img
           src={logoImg}
           alt="Healthmed Logo"
+          width={165}
+          height={44}
           className="h-10 md:h-11 w-auto object-contain"
+          decoding="async"
           referrerPolicy="no-referrer"
         />
       </div>

@@ -82,9 +82,12 @@ export default function WhyChooseUs() {
               <img
                 src={whyChooseUsDoctorImg}
                 alt="Doctor wearing medical uniform holding glowing neon shield"
+                width={500}
+                height={500}
                 className="absolute inset-0 w-full h-full object-cover transition-transform duration-[2s] group-hover:scale-105"
                 referrerPolicy="no-referrer"
                 loading="lazy"
+                decoding="async"
               />
               {/* Overlay with matching soft lighting */}
               <div className="absolute inset-0 bg-gradient-to-tr from-brand-black/25 via-transparent to-white/5"></div>

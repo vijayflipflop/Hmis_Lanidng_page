@@ -184,8 +184,12 @@ export default function Hero() {
             <img
               src={heroSurgeonsImg}
               alt="Healthcare professionals team standing in modern clinical suite"
+              width={1120}
+              height={700}
               className="absolute inset-0 w-full h-full object-cover"
               loading="eager"
+              fetchPriority="high"
+              decoding="async"
               referrerPolicy="no-referrer"
             />
             {/* Elegant dark overlay at bottom only to match reference */}

@@ -76,8 +76,11 @@ export default function Products() {
                 <img
                   src={card.image}
                   alt={`${card.title} - ${card.description}`}
+                  width={600}
+                  height={375}
                   className="absolute inset-0 w-full h-full object-cover group-hover:scale-[1.02] transition-transform duration-[1s]"
                   loading="lazy"
+                  decoding="async"
                 />
               </div>
 

@@ -86,8 +86,11 @@ export default function Testimonials() {
         <img
           src={review.img}
           alt={review.author}
+          width={48}
+          height={48}
           className="w-12 h-12 rounded-lg object-cover shadow-sm border border-gray-100"
           loading="lazy"
+          decoding="async"
           referrerPolicy="no-referrer"
         />
       </div>
