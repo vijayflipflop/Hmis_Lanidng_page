@@ -3,13 +3,56 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import { motion } from 'motion/react';
 import { Building2, Activity, Pill, Users } from 'lucide-react';
 import { Badge } from '../../components/ui/Badge';
 import { Heading } from '../../components/ui/Heading';
+import gsap from 'gsap';
 
 export default function EcosystemHub() {
+  const stageRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (!stageRef.current) return;
+
+    // Respect prefers-reduced-motion
+    const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+    if (mediaQuery.matches) return;
+
+    const ctx = gsap.context(() => {
+      // 1. Hospitals (Top-Left Position)
+      // Floating: Y: -15px ↔ 15px, Duration: 4s
+      gsap.fromTo('#node-hospitals',
+        { y: -15, x: 0, rotation: 0 },
+        { y: 15, x: 0, rotation: 0, duration: 4, repeat: -1, yoyo: true, ease: 'sine.inOut' }
+      );
+
+      // 2. Diagnostics (Top-Right Position)
+      // Floating: Y: -20px ↔ 20px, X: -8px ↔ 8px, Duration: 5s
+      gsap.fromTo('#node-diagnostics',
+        { y: -20, x: -8, rotation: 0 },
+        { y: 20, x: 8, duration: 5, repeat: -1, yoyo: true, ease: 'sine.inOut' }
+      );
+
+      // 3. Pharmacies (Bottom-Left Position)
+      // Floating: Y: -12px ↔ 12px, Rotation: -2deg ↔ 2deg, Duration: 4.5s
+      gsap.fromTo('#node-pharmacies',
+        { y: -12, x: 0, rotation: -2 },
+        { y: 12, x: 0, rotation: 2, duration: 4.5, repeat: -1, yoyo: true, ease: 'sine.inOut' }
+      );
+
+      // 4. Care Teams (Bottom-Right Position)
+      // Floating: Y: -18px ↔ 18px, X: 6px ↔ -6px, Duration: 5.5s
+      gsap.fromTo('#node-careteams',
+        { y: -18, x: 6, rotation: -1 },
+        { y: 18, x: -6, rotation: 1, duration: 5.5, repeat: -1, yoyo: true, ease: 'sine.inOut' }
+      );
+    }, stageRef);
+
+    return () => ctx.revert();
+  }, []);
+
   return (
     <section className="bg-brand-bg py-20 md:py-28 border-b border-brand-gray-100 overflow-hidden" id="ecosystem">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -31,7 +74,7 @@ export default function EcosystemHub() {
         </div>
 
         {/* Central Interactive Ecosystem Stage on cream background without container borders */}
-        <div className="ecosystem-stage-container" id="ecosystem-stage">
+        <div ref={stageRef} className="ecosystem-stage-container" id="ecosystem-stage">
           
           {/* Concentric Orbital dashed circle line passing exactly through the cards */}
           <div className="absolute inset-0 flex items-center justify-center pointer-events-none select-none">
@@ -60,15 +103,7 @@ export default function EcosystemHub() {
               initial={{ opacity: 0, scale: 0.95 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
-              animate={{
-                y: [0, -8, 0],
-                x: [0, 4, 0]
-              }}
-              transition={{
-                y: { duration: 5, repeat: Infinity, ease: 'easeInOut' },
-                x: { duration: 4.5, repeat: Infinity, ease: 'easeInOut' }
-              }}
-              whileHover={{ scale: 1.05, y: -4, transition: { duration: 0.2 } }}
+              whileHover={{ scale: 1.05, transition: { duration: 0.2 } }}
               className="absolute top-4 left-2 md:top-[12%] md:left-[8%] satellite-card group"
               id="node-hospitals"
             >
@@ -83,15 +118,7 @@ export default function EcosystemHub() {
               initial={{ opacity: 0, scale: 0.95 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
-              animate={{
-                y: [0, 8, 0],
-                x: [0, -5, 0]
-              }}
-              transition={{
-                y: { duration: 5.5, repeat: Infinity, ease: 'easeInOut' },
-                x: { duration: 5, repeat: Infinity, ease: 'easeInOut' }
-              }}
-              whileHover={{ scale: 1.05, y: -4, transition: { duration: 0.2 } }}
+              whileHover={{ scale: 1.05, transition: { duration: 0.2 } }}
               className="absolute top-4 right-2 md:top-[12%] md:right-[8%] satellite-card group"
               id="node-diagnostics"
             >
@@ -106,15 +133,7 @@ export default function EcosystemHub() {
               initial={{ opacity: 0, scale: 0.95 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
-              animate={{
-                y: [0, -6, 0],
-                x: [0, -4, 0]
-              }}
-              transition={{
-                y: { duration: 4.8, repeat: Infinity, ease: 'easeInOut' },
-                x: { duration: 5.2, repeat: Infinity, ease: 'easeInOut' }
-              }}
-              whileHover={{ scale: 1.05, y: -4, transition: { duration: 0.2 } }}
+              whileHover={{ scale: 1.05, transition: { duration: 0.2 } }}
               className="absolute bottom-4 left-2 md:bottom-[12%] md:left-[8%] satellite-card group"
               id="node-pharmacies"
             >
@@ -129,15 +148,7 @@ export default function EcosystemHub() {
               initial={{ opacity: 0, scale: 0.95 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
-              animate={{
-                y: [0, 7, 0],
-                x: [0, 5, 0]
-              }}
-              transition={{
-                y: { duration: 5.2, repeat: Infinity, ease: 'easeInOut' },
-                x: { duration: 4.8, repeat: Infinity, ease: 'easeInOut' }
-              }}
-              whileHover={{ scale: 1.05, y: -4, transition: { duration: 0.2 } }}
+              whileHover={{ scale: 1.05, transition: { duration: 0.2 } }}
               className="absolute bottom-4 right-2 md:bottom-[12%] md:right-[8%] satellite-card group"
               id="node-careteams"
             >

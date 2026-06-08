@@ -3,13 +3,93 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import { motion } from 'motion/react';
 import { Sparkles, Calendar, ArrowRight } from 'lucide-react';
 import { Heading } from '../../components/ui/Heading';
 import { Button } from '../../components/ui/Button';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
 // @ts-expect-error - image asset type declaration may be missing
 import heroSurgeonsImg from '../../assets/images/hero.png';
+
+gsap.registerPlugin(ScrollTrigger);
+
+function parseStatValue(valStr: string) {
+  // Matches any potential decimal number followed by trailing suffix characters (such as m+, M+, +, %)
+  const match = valStr.match(/^([\d.]+)(.*)$/);
+  if (!match) return { num: 0, suffix: '', decimals: 0 };
+  
+  const num = parseFloat(match[1]);
+  const suffix = match[2] || '';
+  const decimals = match[1].includes('.') ? match[1].split('.')[1].length : 0;
+  
+  return { num, suffix, decimals };
+}
+
+interface CounterStatProps {
+  key?: React.Key;
+  value: string;
+  label: string;
+  id: string;
+  labelId: string;
+}
+
+function CounterStat({ value, label, id, labelId }: CounterStatProps) {
+  const elementRef = useRef<HTMLSpanElement>(null);
+  
+  useEffect(() => {
+    if (!elementRef.current) return;
+    
+    const { num, suffix, decimals } = parseStatValue(value);
+    
+    // Check for prefers-reduced-motion
+    const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+    if (mediaQuery.matches) {
+      elementRef.current.textContent = value;
+      return;
+    }
+    
+    const obj = { val: 0 };
+    
+    const anim = gsap.to(obj, {
+      val: num,
+      duration: 2.5, // 2-3 seconds as specified
+      ease: 'power2.out',
+      scrollTrigger: {
+        trigger: elementRef.current,
+        start: 'top 95%', // Detect when it enters viewport from bottom
+        toggleActions: 'play none none none', // Trigger once, do not re-trigger on scroll back
+        once: true,
+      },
+      onUpdate: () => {
+        if (elementRef.current) {
+          elementRef.current.textContent = obj.val.toFixed(decimals) + suffix;
+        }
+      }
+    });
+    
+    return () => {
+      anim.kill();
+    };
+  }, [value]);
+
+  return (
+    <div className="flex flex-col justify-center px-4">
+      <span 
+        ref={elementRef}
+        className="text-4xl md:text-5xl font-serif text-white block tracking-tight font-medium" 
+        id={id}
+      >
+        0
+      </span>
+      <span className="text-white/80 text-body-xs font-sans tracking-wide mt-2 block leading-snug" id={labelId}>
+        {label}
+      </span>
+    </div>
+  );
+}
 
 export default function Hero() {
   const stats = [
@@ -117,14 +197,13 @@ export default function Hero() {
             <div className="max-w-6xl mx-auto px-6 py-6 md:py-10">
               <div className="grid grid-cols-2 md:grid-cols-4 gap-y-6 md:gap-y-0 text-center text-white  md:divide-x md:divide-white/20">
                 {stats.map((stat, i) => (
-                  <div key={i} className="flex flex-col justify-center px-4">
-                    <span className="text-4xl md:text-5xl font-serif text-white block tracking-tight font-medium" id={`hero-stat-value-${i}`}>
-                      {stat.value}
-                    </span>
-                    <span className="text-white/80 text-body-xs font-sans tracking-wide mt-2 block leading-snug" id={`hero-stat-label-${i}`}>
-                      {stat.label}
-                    </span>
-                  </div>
+                  <CounterStat
+                    key={i}
+                    value={stat.value}
+                    label={stat.label}
+                    id={`hero-stat-value-${i}`}
+                    labelId={`hero-stat-label-${i}`}
+                  />
                 ))}
               </div>
             </div>

@@ -22,7 +22,7 @@ export default function Products() {
       id: 'CMS',
       title: 'CMS',
       description: "Multi-user software to cover your clinic's workflow, from patient management and medical records, to scheduling and billing.",
-      image: 'https://images.unsplash.com/photo-1504813184591-01552661c88c?auto=format&fit=crop&q=80&w=800',
+      image: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&q=80&w=800',
     },
     {
       id: 'LAB',
