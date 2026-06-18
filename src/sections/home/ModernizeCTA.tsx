@@ -54,7 +54,7 @@ export default function ModernizeCTA() {
             <div className="flex flex-wrap justify-center gap-4 mb-16" id="cta-actions">
               <Button
                 variant="primary"
-                href="#contact"
+                href="/contact"
                 id="cta-btn-book"
               >
                 Book a Call

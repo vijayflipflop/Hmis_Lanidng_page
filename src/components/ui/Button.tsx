@@ -5,6 +5,7 @@
 
 import React from 'react';
 import { motion } from 'motion/react';
+import { Link } from 'react-router-dom';
 
 export interface ButtonProps {
   children: React.ReactNode;
@@ -45,10 +46,21 @@ export function Button({
   const combinedStyles = `${baseStyles} ${variantStyles} ${className}`;
 
   if (href) {
+    const isExternal = href.startsWith('http') || href.startsWith('https') || href.startsWith('mailto:') || href.startsWith('tel:') || href.startsWith('//');
+    const isHash = href.startsWith('#');
+
+    if (isExternal || isHash) {
+      return (
+        <a href={href} className={combinedStyles} id={id} onClick={onClick}>
+          {children}
+        </a>
+      );
+    }
+
     return (
-      <a href={href} className={combinedStyles} id={id} onClick={onClick}>
+      <Link to={href} className={combinedStyles} id={id} onClick={onClick}>
         {children}
-      </a>
+      </Link>
     );
   }
 

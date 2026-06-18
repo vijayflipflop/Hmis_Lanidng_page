@@ -7,6 +7,7 @@ import React, { Suspense, lazy } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Home from './pages/Home';
 import WhatsAppFloat from './components/common/WhatsAppFloat';
+import ScrollToTop from './components/common/ScrollToTop';
 
 const Contact = lazy(() => import('./pages/Contact'));
 const Insights = lazy(() => import('./pages/Insights'));
@@ -15,6 +16,7 @@ const BlogDetails = lazy(() => import('./pages/BlogDetails'));
 export default function App() {
   return (
     <BrowserRouter>
+      <ScrollToTop />
       <div id="app-root">
         <Routes>
           <Route path="/" element={<Home />} />

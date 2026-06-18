@@ -14,7 +14,7 @@ export default function AIWorkflows() {
   ];
 
   return (
-    <section className="bg-[#FAF9F6] py-24 md:py-32 border-b border-brand-gray-200" id="ai-workflows">
+    <section className="bg-[#FAF9F6] py-24 md:py-32 border-b border-brand-gray-200 overflow-hidden" id="ai-workflows">
       <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
           
