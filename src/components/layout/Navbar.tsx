@@ -68,7 +68,7 @@ export default function Navbar() {
   };
 
   return (
-    <header className="sticky top-0 z-50 w-full bg-white/95 backdrop-blur-md border-b border-brand-gray-200" id="main-header">
+    <header className="sticky top-0 z-50 w-full bg-brand-gray-100/70 backdrop-blur-md border-b border-brand-gray-200" id="main-header">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20" id="navbar-inner-container">
           

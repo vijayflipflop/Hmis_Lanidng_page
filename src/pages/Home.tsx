@@ -22,16 +22,18 @@ const ModernizeCTA = lazy(() => import('../sections/home/ModernizeCTA'));
 
 export default function Home() {
   return (
-    <div className="flex flex-col min-h-screen bg-white" id="home-page-container">
+    <div className="flex flex-col min-h-screen bg-brand-gray-100" id="home-page-container">
       {/* Navigation Layout */}
       <Navbar />
 
       {/* Main Sections Fold Flow */}
       <main className="flex-grow">
         <Hero />
-        <Partners />
         
-        {/* Progressively hydrated lower folds preserve layout spacing to yield 0.00 CLS */}
+        <Suspense fallback={<div className="bg-brand-bg w-full min-h-[500px] border-b border-brand-gray-100" />}>
+          <Partners />
+        </Suspense>
+        
         <Suspense fallback={<div className="bg-brand-bg w-full min-h-[500px] border-b border-brand-gray-100" />}>
           <WhyChooseUs />
         </Suspense>

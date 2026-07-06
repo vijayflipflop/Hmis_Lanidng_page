@@ -150,10 +150,10 @@ export default function Partners() {
   );
 
   return (
-    <section className="bg-white py-14 border-b border-brand-gray-100 overflow-hidden" id="partners">
+    <section className="py-14  bg-brand-bg  overflow-hidden" id="partners">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        {/* Caption Title */}
+         {/* Caption Title */}
         <p className="text-center text-xs font-semibold uppercase tracking-widest text-brand-gray-600 mb-10">
           Trusted by 30+ Modern Healthcare Organizations
         </p>
@@ -162,8 +162,8 @@ export default function Partners() {
         <div className="relative w-full flex flex-col gap-8 overflow-hidden" id="partners-marquee-container">
           
           {/* Subtle gradient side panels for fade-in effect to cover edges */}
-          <div className="absolute inset-y-0 left-0 w-16 md:w-40 bg-gradient-to-r from-white via-white/85 to-transparent z-10 pointer-events-none" />
-          <div className="absolute inset-y-0 right-0 w-16 md:w-40 bg-gradient-to-l from-white via-white/85 to-transparent z-10 pointer-events-none" />
+          <div className="absolute inset-y-0 left-0 w-16 md:w-40 bg-gradient-to-r from-brand-gray-100 via-brand-gray-100/85 to-transparent z-10 pointer-events-none" />
+          <div className="absolute inset-y-0 right-0 w-16 md:w-40 bg-gradient-to-l from-brand-gray-100 via-brand-gray-100/85 to-transparent z-10 pointer-events-none" />
 
           {/* Row 1 Marquee: Moving Left */}
           <div className="relative w-full overflow-hidden flex" id="partners-marquee-row-1-wrapper">

@@ -12,7 +12,7 @@ import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 // @ts-expect-error - image asset type declaration may be missing
-import heroSurgeonsImg from '../../assets/images/hero.png';
+import heroSurgeonsImg from '../../assets/images/hero_image.png';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -111,7 +111,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: -8 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="text-body-sm md:text-lg font-sans font-semibold text-brand-blue text-center"
+            className="text-body-sm md:text-[20px] font-sans font-normal text-brand-blue text-center"
             id="hero-badge"
           >
             AI-Powered Healthcare Infrastructure
@@ -142,7 +142,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="mt-6 text-brand-gray-700 text-body-lg max-w-2xl mx-auto leading-relaxed font-sans"
+            className="mt-6 text-brand-gray-700 text-body-lg max-w-[1000px] mx-auto leading-relaxed font-sans"
             id="hero-description"
           >
             HealthMed helps hospitals, clinics, and healthcare teams manage patient care, diagnostics, billing, pharmacy, and operations through one connected healthcare management system.
@@ -201,7 +201,7 @@ export default function Hero() {
           {/* Integrated Statistics Container holding figures */}
           <div className="absolute bottom-0 left-0 right-0 w-full" id="hero-stats-panel">
             <div className="max-w-6xl mx-auto px-6 py-6 md:py-10">
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-y-6 md:gap-y-0 text-center text-white  md:divide-x md:divide-white/20">
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-y-6 md:gap-y-0 text-center text-white  md:divide-x md:divide-brand-gray-400">
                 {stats.map((stat, i) => (
                   <CounterStat
                     key={i}

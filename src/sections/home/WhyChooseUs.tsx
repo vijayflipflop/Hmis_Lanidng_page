@@ -25,7 +25,7 @@ export default function WhyChooseUs() {
   return (
     <section className="bg-brand-bg py-20 md:py-28 border-b border-brand-gray-100" id="about">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-stretch">
           
           {/* Left Column: Text and bullet listings (takes 7 columns in desktop for beautiful spacing) */}
           <motion.div
@@ -45,7 +45,7 @@ export default function WhyChooseUs() {
 
              {/* Display Headings with custom serif italics */}
             <div className="space-y-3">
-              <Heading level={2} className="text-brand-charcoal text-h2 font-sans font-normal">
+              <Heading level={2} className="text-brand-charcoal text-h2 font-serif">
                 Why Healthcare Teams Choose <br />
                 <span className="italic font-serif block mt-2 text-brand-charcoal">
                   HealthMed
@@ -54,7 +54,7 @@ export default function WhyChooseUs() {
             </div>
 
             {/* Paragraph body */}
-            <p className="text-brand-slate text-body-lg leading-relaxed max-w-xl font-sans" id="whychooseus-descr">
+            <p className="text-brand-gray-800 text-[20px] text-body-lg leading-relaxed max-w-xl font-sans" id="whychooseus-descr">
               Built to improve operational efficiency, patient management, and healthcare coordination through connected workflows.
             </p>
 
@@ -62,7 +62,7 @@ export default function WhyChooseUs() {
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-4 pt-4 md:pt-6" id="whychooseus-grid">
               {checkmarks.map((item, idx) => (
                 <div key={idx} className="flex items-center gap-3 text-body font-sans text-brand-slate" id={`whychooseus-item-${idx}`}>
-                  <BadgeCheck className="h-5 w-5 text-brand-blue flex-shrink-0" />
+                  <BadgeCheck className="h-[21px] w-[21px] text-brand-blue flex-shrink-0" fill="currentColor" stroke="white" strokeWidth={2.5} />
                   <span className="font-sans font-medium tracking-tight text-gray-700">{item}</span>
                 </div>
               ))}
@@ -75,10 +75,10 @@ export default function WhyChooseUs() {
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
-            className="lg:col-span-5"
+            className="lg:col-span-5 flex"
             id="whychooseus-graphic-panel"
           >
-            <div className="relative aspect-square w-full rounded-2xl overflow-hidden shadow-xl border border-gray-200/50 bg-white group">
+            <div className="relative w-full overflow-hidden shadow-xl border border-gray-200/50 bg-white group h-full">
               <img
                 src={whyChooseUsDoctorImg}
                 alt="Doctor wearing medical uniform holding glowing neon shield"
@@ -99,4 +99,3 @@ export default function WhyChooseUs() {
     </section>
   );
 }
-

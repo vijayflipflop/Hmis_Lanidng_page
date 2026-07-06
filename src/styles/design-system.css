@@ -275,13 +275,13 @@
 
   /* Badges components mappings */
   .badge-custom-dark {
-    @apply bg-gradient-to-b from-[#151515] to-[#5B5B5B] py-1.5 px-4 text-white text-[11px] font-sans font-bold uppercase tracking-wider rounded-lg shadow-sm border border-brand-gray-700/60;
+    @apply bg-gradient-to-b from-[#151515] to-[#5B5B5B] py-1.5 px-4 text-white text-[16px] font-sans  tracking-wider rounded-lg shadow-sm border border-brand-gray-700/60;
   }
   .badge-custom-glass {
-    @apply border border-white/20 py-1.5 px-4 bg-white/10 text-white text-[11px] font-sans font-semibold uppercase tracking-wider rounded-lg shadow-sm;
+    @apply border border-white/20 py-1.5 px-4 bg-white/10 text-white text-[16px] font-sans   tracking-wider rounded-lg shadow-sm;
   }
   .badge-custom-white {
-    @apply bg-white text-brand-black py-1.5 px-4 text-[11px] font-sans font-bold uppercase tracking-wider rounded-lg shadow-sm border border-brand-gray-200;
+    @apply bg-white text-brand-black py-1.5 px-4 text-[16px] font-sans   tracking-wider rounded-lg shadow-sm border border-brand-gray-200;
   }
 
   /* Custom Functional Layout Classes preventing inline arbitrary metrics */
