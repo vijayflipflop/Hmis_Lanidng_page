@@ -68,7 +68,7 @@ export default function Features() {
             </Badge>
           </div>
           <Heading level={2} id="features-heading" className="text-white">
-            <span className="italic font-normal">Built for Smarter</span> Healthcare Management
+            <span className="italic">Built for Smarter</span> Healthcare Management
           </Heading>
         </div>
 
@@ -94,12 +94,12 @@ export default function Features() {
               </div>
 
               {/* Title heading formatted neatly */}
-              <h3 className="text-[19px] font-sans font-bold tracking-tight mb-2.5 text-white">
+              <h3 className="text-3xl-medium mb-2.5 text-white">
                 {item.title}
               </h3>
 
               {/* Description Paragraph with high opacity & readable spacing */}
-              <p className="text-white/80 text-[14.5px] leading-relaxed font-sans">
+              <p className="text-white/80 text-xl">
                 {item.text}
               </p>
             </motion.div>

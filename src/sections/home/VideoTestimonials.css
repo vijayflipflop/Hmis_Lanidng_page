@@ -1,0 +1,239 @@
+/**
+ * @license
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+.video-testimonials-section {
+  background-color: #F8F9FA; /* Off-white warm background matching the layout design */
+  padding: 5rem 1.5rem;
+  border-bottom: 1px solid #E5E7EB;
+  position: relative;
+}
+
+@media (min-width: 1024px) {
+  .video-testimonials-section {
+    padding: 7rem 2rem;
+  }
+}
+
+.video-testimonials-container {
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Section Header styling to match screenshot typography */
+.video-testimonials-header {
+  text-align: center;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 4rem;
+}
+
+.video-testimonials-title {
+  font-family: var(--font-serif);
+  font-size: 2.25rem; /* ~36px */
+  font-weight: 500;
+  line-height: 1.2;
+  color: var(--color-brand-charcoal);
+  letter-spacing: -0.02em;
+  margin-bottom: 1.25rem;
+}
+
+@media (min-width: 768px) {
+  .video-testimonials-title {
+    font-size: 3rem; /* ~48px */
+  }
+}
+
+.video-testimonials-subtitle {
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--color-brand-gray-600);
+}
+
+@media (min-width: 768px) {
+  .video-testimonials-subtitle {
+    font-size: 1.125rem;
+  }
+}
+
+/* 3-Column Video Grid */
+.video-testimonials-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+
+@media (min-width: 768px) {
+  .video-testimonials-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1.75rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .video-testimonials-grid {
+    gap: 2.25rem;
+  }
+}
+
+/* Individual Video Card */
+.video-testimonial-card {
+  position: relative;
+  height: 440px;
+  border-radius: 20px;
+  overflow: hidden;
+  background-color: #EBF1F5;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.04);
+  cursor: pointer;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease;
+}
+
+.video-testimonial-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 40px rgba(0, 85, 255, 0.08);
+}
+
+.video-testimonial-card.is-playing {
+  cursor: default;
+}
+
+.video-testimonial-card.is-playing:hover {
+  transform: none;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.04);
+}
+
+/* Thumbnail Image layer */
+.video-card-thumbnail {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.video-testimonial-card:hover .video-card-thumbnail {
+  transform: scale(1.03);
+}
+
+/* Center Play Button Overlay */
+.video-play-trigger {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  pointer-events: none;
+}
+
+.video-play-circle {
+  width: 72px;
+  height: 72px;
+  background-color: rgba(30, 41, 59, 0.72);
+  backdrop-filter: blur(4px);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), background-color 0.2s ease;
+  pointer-events: auto;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.video-testimonial-card:hover .video-play-circle {
+  transform: scale(1.12);
+  background-color: rgba(0, 85, 255, 0.95); /* High contrast action brand blue on hover */
+}
+
+.video-play-icon {
+  width: 28px;
+  height: 28px;
+  color: #FFFFFF;
+  fill: #FFFFFF;
+  margin-left: 4px; /* Perfectly center the triangle offset */
+}
+
+/* Silky Smooth Video Player Wrapper */
+.video-player-wrapper {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 20;
+  background-color: #000000;
+}
+
+.video-player-element {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Controls overlaid in video */
+.video-overlay-controls {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  display: flex;
+  gap: 0.5rem;
+  z-index: 25;
+}
+
+.video-control-btn {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background-color: rgba(15, 23, 42, 0.6);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.video-control-btn:hover {
+  background-color: rgba(15, 23, 42, 0.85);
+  transform: scale(1.05);
+}
+
+/* Premium Frosted Glass Text Overlay */
+.video-card-frosted-overlay {
+  position: absolute;
+  bottom: 0;
+  inset-x: 0;
+  padding: 2.25rem 1.5rem 1.5rem 1.5rem;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.4) 60%, transparent 100%);
+  backdrop-filter: blur(8px);
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  z-index: 15;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.video-testimonial-card.is-playing .video-card-frosted-overlay {
+  opacity: 0;
+  transform: translateY(100%);
+  pointer-events: none;
+}
+
+.video-member-name {
+  font-family: var(--font-sans);
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #FFFFFF;
+  margin-bottom: 0.25rem;
+  letter-spacing: -0.01em;
+}
+
+.video-member-role {
+  font-family: var(--font-sans);
+  font-size: 0.9375rem;
+  color: rgba(255, 255, 255, 0.8);
+}

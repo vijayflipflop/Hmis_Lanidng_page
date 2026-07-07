@@ -51,9 +51,9 @@ export default function Products() {
           </div>
           <Heading level={2} id="products-heading" className="text-brand-charcoal">
             Everything Healthcare Teams Need <br />
-            <span className="italic font-normal block mt-2">Connected in One Platform</span>
+            <span className="italic block mt-2">Connected in One Platform</span>
           </Heading>
-          <p className="mt-5 text-brand-slate text-body-lg max-w-2xl mx-auto leading-relaxed font-sans" id="products-description">
+          <p className="mt-5 text-brand-slate text-2xl max-w-2xl mx-auto" id="products-description">
             HealthMed combines clinical, operational, financial, and patient workflows into one intelligent healthcare management ecosystem.
           </p>
         </div>
@@ -88,7 +88,7 @@ export default function Products() {
               <div className="p-8 flex flex-col flex-grow">
                 {/* Title and Read More Action Link on the exact same row */}
                  <div className="flex items-center justify-between mb-4">
-                  <Heading level={3} className="text-brand-charcoal font-medium leading-none">
+                  <Heading level={3} className="text-brand-charcoal">
                     {card.title}
                   </Heading>
                   <Button
@@ -102,7 +102,7 @@ export default function Products() {
                 </div>
 
                 {/* Body Paragraph description with custom leading and text-sm / text-[13.5px] */}
-                <p className="text-brand-slate text-body-sm leading-relaxed flex-grow">
+                <p className="text-brand-slate text-xl flex-grow">
                   {card.description}
                 </p>
               </div>

@@ -328,7 +328,7 @@ export default function Insights() {
                     <button
                       onClick={() => toggleFaq(idx)}
                       aria-expanded={isOpen}
-                      className="w-full text-left py-6 flex items-center justify-between gap-4 font-sans font-medium text-base sm:text-lg md:text-body-lg text-brand-charcoal hover:text-brand-blue-accent transition-colors focus:outline-none cursor-pointer"
+                      className="w-full text-left py-6 flex items-center justify-between gap-4 font-sans font-medium text-xl md:text-2xl text-brand-charcoal hover:text-brand-blue-accent transition-colors focus:outline-none cursor-pointer"
                       id={`insights-faq-button-${idx}`}
                     >
                       <span className="tracking-tight">{faq.question}</span>
@@ -351,7 +351,7 @@ export default function Insights() {
                           transition={{ duration: 0.28, ease: 'easeInOut' }}
                           id={`insights-faq-panel-${idx}`}
                         >
-                          <div className="pb-6 text-brand-slate text-sm sm:text-base leading-relaxed font-sans max-w-2xl bg-transparent">
+                          <div className="pb-6 text-brand-slate text-xl leading-relaxed font-sans max-w-2xl bg-transparent">
                             {faq.answer}
                           </div>
                         </motion.div>

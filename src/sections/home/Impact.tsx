@@ -5,6 +5,7 @@
 
 import React from 'react';
 import { motion } from 'motion/react';
+import { AnimatedCounter } from '../../components/common/AnimatedCounter';
 
 export default function Impact() {
   const cards = [
@@ -23,14 +24,14 @@ export default function Impact() {
         {/* Headings */}
         <div className="text-center max-w-3xl mx-auto mb-16 md:mb-20">
           <div className="flex justify-center">
-            <span className="px-4 py-1.5 bg-gradient-to-b from-[#343A40] to-[#191C1F] text-white text-[11px] md:text-xs font-semibold rounded shadow-sm select-none tracking-wide font-sans cursor-default border border-brand-gray-700/60" id="impact-badge">
+            <span className="px-4 py-1.5 bg-gradient-to-b from-[#343A40] to-[#191C1F] text-white rounded shadow-sm select-none cursor-default border border-brand-gray-700/60" id="impact-badge">
               Impact Created
             </span>
           </div>
-          <h2 className="text-4xl md:text-5xl lg:text-[52px] font-serif font-normal text-brand-black leading-tight tracking-tight mt-6" id="impact-heading">
-            <span className="italic font-light">Delivering</span> Measurable Healthcare Impact
+          <h2 className="text-7xl text-brand-black mt-6" id="impact-heading">
+            <span className="italic">Delivering</span> Measurable Healthcare Impact
           </h2>
-          <p className="mt-6 text-brand-gray-600 text-base md:text-lg leading-relaxed max-w-2xl mx-auto font-sans" id="impact-description">
+          <p className="mt-6 text-brand-gray-600 text-xl max-w-2xl mx-auto" id="impact-description">
             HealthMed helps healthcare organizations improve operational efficiency, reduce manual work, and accelerate patient workflows.
           </p>
         </div>
@@ -42,19 +43,21 @@ export default function Impact() {
               key={i}
               initial={{ opacity: 0, y: 15 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
+              viewport={{ once: true, amount: 0.15 }}
               transition={{ duration: 0.5, delay: i * 0.05 }}
               className="bg-brand-gray-50 rounded-md p-8 md:p-10 flex flex-col justify-center min-h-[160px] md:min-h-[180px] transition-all duration-200 hover:bg-brand-gray-100 cursor-default"
               id={`impact-card-${i}`}
             >
               <div className="flex flex-col space-y-3">
                 {/* Visual Number Value */}
-                <span className="text-5xl md:text-6xl font-serif text-brand-black select-none tracking-tight">
-                  {card.value}
-                </span>
+                <AnimatedCounter 
+                  value={card.value} 
+                  className="text-6xl text-brand-black select-none" 
+                  id={`impact-stat-value-${i}`}
+                />
 
                 {/* Subtitle label explanation */}
-                <span className="text-base text-brand-gray-800 tracking-tight font-sans leading-tight">
+                <span className="text-xl text-brand-gray-800">
                   {card.label}
                 </span>
               </div>

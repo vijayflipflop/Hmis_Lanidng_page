@@ -30,7 +30,7 @@ const getStyledTitle = (slug: string, defaultTitle: string) => {
     return (
       <>
         How HMIS Platforms Reduce <br className="hidden md:inline" />
-        Administrative <span className="italic font-normal">Workload</span> by 35%
+        Administrative <span className="italic">Workload</span> by 35%
       </>
     );
   }
@@ -38,7 +38,7 @@ const getStyledTitle = (slug: string, defaultTitle: string) => {
     return (
       <>
         How AI is Transforming <br className="hidden md:inline" />
-        Modern <span className="italic font-normal">Hospital</span> Operations
+        Modern <span className="italic">Hospital</span> Operations
       </>
     );
   }
@@ -46,14 +46,14 @@ const getStyledTitle = (slug: string, defaultTitle: string) => {
     return (
       <>
         Improving Patient <br className="hidden md:inline" />
-        <span className="italic font-normal">Registration</span> Without Increasing Staff
+        <span className="italic">Registration</span> Without Increasing Staff
       </>
     );
   }
   if (slug === 'reducing-waiting-time') {
     return (
       <>
-        Reducing Patient <span className="italic font-normal">Waiting Time</span>: <br className="hidden md:inline" />
+        Reducing Patient <span className="italic">Waiting Time</span>: <br className="hidden md:inline" />
         Strategies That Actually Work
       </>
     );
@@ -61,7 +61,7 @@ const getStyledTitle = (slug: string, defaultTitle: string) => {
   if (slug === 'healthcare-trends-2026') {
     return (
       <>
-        Healthcare <span className="italic font-normal">Trends</span> Every <br className="hidden md:inline" />
+        Healthcare <span className="italic">Trends</span> Every <br className="hidden md:inline" />
         Administrator Should Watch
       </>
     );
@@ -69,7 +69,7 @@ const getStyledTitle = (slug: string, defaultTitle: string) => {
   if (slug === 'reducing-lab-tat') {
     return (
       <>
-        Reducing Laboratory Report <span className="italic font-normal">TAT</span> <br className="hidden md:inline" />
+        Reducing Laboratory Report <span className="italic">TAT</span> <br className="hidden md:inline" />
         Through Workflow Improvements
       </>
     );
@@ -78,7 +78,7 @@ const getStyledTitle = (slug: string, defaultTitle: string) => {
     return (
       <>
         Creating a Connected Healthcare <br className="hidden md:inline" />
-        <span className="italic font-normal">Ecosystem</span> Across Departments
+        <span className="italic">Ecosystem</span> Across Departments
       </>
     );
   }
@@ -206,7 +206,7 @@ export default function BlogDetails() {
             <div className="mb-10 article-hero-anim">
               <Link 
                 to="/insights"
-                className="inline-flex items-center gap-1 text-brand-charcoal hover:text-brand-slate font-sans text-sm md:text-base font-medium transition-colors select-none"
+                className="inline-flex items-center gap-1 text-brand-charcoal hover:text-brand-slate text-xl-medium transition-colors select-none"
                 id="back-to-insights-btn"
               >
                 <ChevronLeft className="h-4.5 w-4.5" /> Blog
@@ -222,22 +222,22 @@ export default function BlogDetails() {
             </h1>
 
             {/* Main Article Subtitle / Description */}
-            <p className="article-hero-anim text-brand-slate font-sans text-base sm:text-lg md:text-[19px] leading-relaxed mb-12 max-w-3xl" id="article-detail-description">
+            <p className="article-hero-anim text-brand-slate text-3xl mb-12 max-w-3xl" id="article-detail-description">
               {activePost.description}
             </p>
 
             {/* Cleaner borderless Metadata row right above the image */}
             <div 
-              className="article-hero-anim flex items-center justify-between text-xs sm:text-sm font-sans tracking-tight text-brand-slate pb-4 mb-4"
+              className="article-hero-anim flex items-center justify-between text-brand-slate pb-4 mb-4 text-xl"
               id="article-metadata-row"
             >
               <div className="flex items-center gap-2">
                 <span className="w-1.5 h-1.5 bg-brand-blue-accent inline-block"></span>
-                <span className="font-semibold uppercase tracking-wider text-brand-slate text-[11px] sm:text-xs">
+                <span className="uppercase text-brand-slate text-xl-medium">
                   {activePost.categoryName}
                 </span>
               </div>
-              <div className="text-brand-slate text-[11px] sm:text-xs font-mono">
+              <div className="text-brand-slate text-xl font-mono">
                 {activePost.date}
               </div>
             </div>
@@ -274,7 +274,7 @@ export default function BlogDetails() {
                     >
                       {/* Heading structures dynamic */}
                       {sec.heading && (
-                        <h2 className="text-2xl sm:text-3xl md:text-4xl font-serif text-brand-charcoal tracking-tight font-medium mt-10 mb-5 leading-snug">
+                        <h2 className="text-brand-charcoal mt-10 mb-5 text-4xl">
                           {sec.heading}
                         </h2>
                       )}
@@ -283,7 +283,7 @@ export default function BlogDetails() {
                       {sec.paragraphs && sec.paragraphs.map((p, pIdx) => (
                         <p 
                           key={pIdx} 
-                          className="font-sans text-brand-slate text-[15px] sm:text-[16px] md:text-[17px] leading-relaxed tracking-normal font-normal"
+                          className="text-brand-slate text-2xl"
                         >
                           {p}
                         </p>
@@ -292,11 +292,11 @@ export default function BlogDetails() {
                       {/* Quote sections */}
                       {sec.quote && (
                         <blockquote className="border-l-4 border-brand-blue-accent bg-white/50 rounded-r-xl p-6 sm:p-8 my-8 shadow-sm">
-                          <p className="font-serif italic text-brand-charcoal text-lg sm:text-xl md:text-2xl leading-relaxed text-left">
+                          <p className="italic text-brand-charcoal text-left text-2xl">
                             "{sec.quote}"
                           </p>
                           {activePost.author && (
-                            <cite className="block mt-3 text-xs sm:text-sm font-sans font-bold uppercase tracking-wider text-brand-blue-accent not-italic">
+                            <cite className="block mt-3 uppercase text-brand-blue-accent not-italic text-xl-medium">
                               — {activePost.author}
                             </cite>
                           )}
@@ -305,11 +305,11 @@ export default function BlogDetails() {
 
                       {/* Lists dynamically checked */}
                       {sec.listItems && sec.listItems.length > 0 && (
-                        <ul className="list-disc pl-5 sm:pl-6 space-y-3 my-6 font-sans text-brand-slate text-[15px] sm:text-[16px] md:text-[17px]">
+                        <ul className="list-disc pl-5 sm:pl-6 space-y-3 my-6 text-brand-slate text-2xl">
                           {sec.listItems.map((item, itemIdx) => (
                             <li 
                               key={itemIdx} 
-                              className="leading-relaxed list-inside pl-1"
+                              className="list-inside pl-1"
                             >
                               {item}
                             </li>
@@ -322,10 +322,10 @@ export default function BlogDetails() {
               ) : (
                 // Fallback structured description
                 <div className="space-y-6 article-content-block">
-                  <p className="font-sans text-brand-slate text-[16px] md:text-lg leading-relaxed">
+                  <p className="text-brand-slate text-2xl">
                     {activePost.description}
                   </p>
-                  <p className="font-sans text-brand-slate text-[16px] md:text-lg leading-relaxed">
+                  <p className="text-brand-slate text-2xl">
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam elementum turpis eget erat hendrerit, id convallis sem facilisis. Curabitur sed erat ligula. Donec ac ipsum eu purus feugiat molestie. Duis vel est sodales, aliquam nisl ut, luctus mauris.
                   </p>
                 </div>
@@ -334,12 +334,12 @@ export default function BlogDetails() {
 
             {/* Elegant End-of-article Author Profile Signature Card */}
             <div className="max-w-3xl mx-auto border-t border-brand-gray-300/40 mt-16 pt-8 flex items-center gap-4 animate-fade-in" id="article-author-signature">
-              <div className="w-10 h-10 rounded-full bg-brand-blue-accent/10 flex items-center justify-center text-brand-blue-accent font-serif font-bold text-sm shadow-sm select-none">
+              <div className="w-10 h-10 rounded-full bg-brand-blue-accent/10 flex items-center justify-center text-brand-blue-accent shadow-sm select-none text-xl-medium">
                 {activePost.author.charAt(0)}
               </div>
-              <div className="font-sans text-sm">
-                <span className="block font-semibold text-brand-charcoal">Written by {activePost.author}</span>
-                <span className="block text-xs text-brand-slate mt-0.5">{activePost.authorRole}</span>
+              <div className="text-xl">
+                <span className="block text-brand-charcoal text-xl-medium">Written by {activePost.author}</span>
+                <span className="block text-brand-slate mt-0.5">{activePost.authorRole}</span>
               </div>
             </div>
 
@@ -414,7 +414,7 @@ export default function BlogDetails() {
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: 10 }}
-                  className="text-right max-w-3xl mx-auto mt-2 text-xs font-sans text-emerald-600 font-semibold"
+                  className="text-right max-w-3xl mx-auto mt-2 text-emerald-600 text-xl-medium"
                   id="toast-clipboard-success"
                 >
                   Link successfully copied to clipboard!
@@ -430,8 +430,8 @@ export default function BlogDetails() {
           <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             
             <div className="text-center mb-14" id="more-explore-trigger">
-              <h2 className="text-4xl md:text-5xl font-serif text-brand-charcoal font-normal" id="explore-main-heading">
-                <span className="italic font-normal">More</span> to Explore
+              <h2 className="text-5xl text-brand-charcoal" id="explore-main-heading">
+                <span className="italic">More</span> to Explore
               </h2>
             </div>
 
@@ -458,8 +458,8 @@ export default function BlogDetails() {
                   </div>
 
                   {/* Meta Label details: Left-aligned Category with square prefix, right-aligned date with leading slash */}
-                  <div className="flex items-center justify-between text-xs sm:text-sm font-sans text-brand-slate mb-3.5 px-0.5" id={`explore-blog-meta-${blog.id}`}>
-                    <div className="flex items-center gap-1.5 font-medium text-brand-slate">
+                  <div className="flex items-center justify-between text-brand-slate mb-3.5 px-0.5 text-xl" id={`explore-blog-meta-${blog.id}`}>
+                    <div className="flex items-center gap-1.5 text-brand-slate text-xl-medium">
                       <span className="inline-block w-1.5 h-1.5 bg-brand-gray-400"></span>
                       <span>{blog.categoryName}</span>
                     </div>
@@ -469,12 +469,12 @@ export default function BlogDetails() {
                   </div>
 
                   {/* Title details with snug line height */}
-                  <h3 className="text-lg sm:text-[19px] font-sans font-bold text-brand-charcoal leading-snug mb-3 px-0.5 group-hover:text-brand-blue-accent transition-colors duration-200" id={`explore-blog-title-${blog.id}`}>
+                  <h3 className="text-brand-charcoal mb-3 px-0.5 group-hover:text-brand-blue-accent transition-colors duration-200 text-3xl-medium" id={`explore-blog-title-${blog.id}`}>
                     {blog.title}
                   </h3>
 
                   {/* Excerpt details */}
-                  <p className="text-xs sm:text-[13px] md:text-sm font-sans text-brand-slate leading-relaxed flex-grow line-clamp-3 px-0.5" id={`explore-blog-desc-${blog.id}`}>
+                  <p className="text-brand-slate flex-grow line-clamp-3 px-0.5 text-xl" id={`explore-blog-desc-${blog.id}`}>
                     {blog.description}
                   </p>
                 </Link>

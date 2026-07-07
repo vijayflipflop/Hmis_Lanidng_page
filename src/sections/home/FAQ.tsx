@@ -51,7 +51,7 @@ export default function FAQ() {
             </Badge>
           </div>
           <Heading level={2} id="faq-heading" className="text-brand-charcoal">
-            <span className="italic font-normal">Answers to your</span> most common concerns
+            <span className="italic">Answers to your</span> most common concerns
           </Heading>
         </div>
 
@@ -67,12 +67,12 @@ export default function FAQ() {
               >
                 {/* Accordion header button */}
                 <button
-                  onClick={() => toggleFAQ(idx)}
-                  className="w-full text-left py-6 flex items-center justify-between gap-4 font-sans font-medium text-body-lg text-brand-charcoal hover:text-brand-blue-accent transition-colors focus:outline-none cursor-pointer"
-                  aria-expanded={isOpen}
-                  id={`faq-btn-${idx}`}
+                   onClick={() => toggleFAQ(idx)}
+                  className="w-full text-left py-6 flex items-center justify-between gap-4 text-2xl-medium text-brand-charcoal hover:text-brand-blue-accent transition-colors focus:outline-none cursor-pointer"
+                   aria-expanded={isOpen}
+                   id={`faq-btn-${idx}`}
                 >
-                  <span className="tracking-tight">{faq.question}</span>
+                  <span id={`faq-q-text-${idx}`}>{faq.question}</span>
                   <div className="flex-shrink-0 w-8 h-8 rounded-full bg-brand-blue-accent hover:bg-brand-blue-accent-hover flex items-center justify-center text-white shadow-sm transition-colors duration-200" id={`faq-indicator-${idx}`}>
                     {isOpen ? (
                       <Minus className="h-4 w-4 text-white stroke-[2.5]" id={`faq-icon-minus-${idx}`} />
@@ -92,7 +92,7 @@ export default function FAQ() {
                       transition={{ duration: 0.25, ease: 'easeInOut' }}
                       id={`faq-body-${idx}`}
                     >
-                      <div className="pb-6 text-brand-slate text-body leading-relaxed font-sans max-w-2xl bg-transparent">
+                      <div className="pb-6 text-brand-slate text-xl max-w-2xl bg-transparent">
                         {faq.answer}
                       </div>
                     </motion.div>

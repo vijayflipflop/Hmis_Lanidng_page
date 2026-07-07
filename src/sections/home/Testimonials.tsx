@@ -68,7 +68,7 @@ export default function Testimonials() {
         </div>
 
         {/* Quotation block text */}
-        <p className="text-brand-gray-750 text-base md:text-[17px] leading-relaxed mb-8 font-sans">
+        <p className="text-brand-gray-750 text-2xl mb-8">
           {review.text}
         </p>
       </div>
@@ -76,10 +76,10 @@ export default function Testimonials() {
       {/* Author profile info line */}
       <div className="flex items-center justify-between mt-auto pt-4 border-t border-gray-100/50">
         <div className="flex flex-col">
-          <span className="font-semibold text-[15px] tracking-tight text-brand-black leading-tight">
+          <span className="text-xl-medium text-brand-black">
             {review.author}
           </span>
-          <span className="text-xs md:text-sm text-brand-gray-500 mt-1 leading-none">
+          <span className="text-brand-gray-500 mt-1 text-xl">
             {review.role}
           </span>
         </div>
@@ -104,13 +104,13 @@ export default function Testimonials() {
         {/* Card head section */}
         <div className="text-center max-w-3xl mx-auto mb-16 md:mb-20">
           <div className="flex justify-center">
-            <span className="px-4 py-1.5 bg-gradient-to-b from-[#343A40] to-[#191C1F] text-white text-[11px] md:text-xs font-semibold rounded shadow-sm select-none tracking-wide font-sans cursor-default border border-brand-gray-700/60" id="testimonial-badge">
+            <span className="px-4 py-1.5 bg-gradient-to-b from-[#343A40] to-[#191C1F] text-white rounded shadow-sm select-none cursor-default border border-brand-gray-700/60" id="testimonial-badge">
               Testimonial
             </span>
           </div>
           {/* Typo Match: "What our Client Say" with elegant italicized serif start */}
-          <h2 className="text-4xl md:text-5xl lg:text-[52px] font-serif font-normal text-brand-black leading-tight tracking-tight mt-6" id="testimonial-heading">
-            <span className="italic font-light">What</span> our Client Say
+          <h2 className="text-7xl text-brand-black mt-6" id="testimonial-heading">
+            <span className="italic">What</span> our Client Say
           </h2>
         </div>
 

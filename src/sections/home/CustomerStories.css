@@ -1,0 +1,269 @@
+/**
+ * @license
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+/* ==========================================================================
+   Customer Stories Section Styling
+   ========================================================================== */
+
+.customer-stories-section {
+  background-color: var(--color-background);
+  padding-top: var(--space-2xl);
+  padding-bottom: var(--space-2xl);
+  border-bottom: 1px solid var(--color-brand-gray-200);
+}
+
+@media (min-width: 768px) {
+  .customer-stories-section {
+    padding-top: var(--space-3xl);
+    padding-bottom: var(--space-3xl);
+  }
+}
+
+.customer-stories-container {
+  max-w: 80rem; /* max-w-7xl */
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--space-lg);
+  padding-right: var(--space-lg);
+}
+
+.customer-stories-badge-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-bottom: var(--space-md);
+}
+
+.customer-stories-header {
+  text-align: center;
+  max-width: 48rem; /* max-w-3xl */
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: var(--space-2xl);
+}
+
+.customer-stories-title {
+  font-family: var(--font-serif);
+  font-size: 3rem; /* text-5xl equivalent */
+  color: var(--color-brand-charcoal);
+  margin-top: var(--space-md);
+  margin-bottom: var(--space-md);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+@media (min-width: 768px) {
+  .customer-stories-title {
+    font-size: 3.75rem; /* text-6xl equivalent */
+  }
+}
+
+.customer-stories-subtitle {
+  font-family: var(--font-sans);
+  color: var(--color-brand-gray-600);
+  font-size: 1.125rem; /* text-lg */
+  line-height: 1.5;
+  max-width: 38rem; /* match exact width to match references */
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* ==========================================================================
+   Main Showcase Gradient Box (with Grain Texture Overlay)
+   ========================================================================== */
+
+.customer-stories-showcase {
+  border-radius: 36px; /* Beautifully rounded extra-large borders matching the reference image */
+  padding: 1.5rem;
+  position: relative;
+  box-shadow: 0 25px 60px rgba(0, 85, 255, 0.15);
+  
+  /* Rich, exact 4-color linear gradient matching the design spec colors */
+  background: linear-gradient(to bottom, #B4D0FF 0%, #478CFF 30%, #FF629E 65%, #FF6220 100%);
+  
+  /* Monotone noise overlay with exactly 14% opacity as per spec */
+  background-image: 
+    url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.14'/%3E%3C/svg%3E"),
+    linear-gradient(to bottom, #B4D0FF 0%, #478CFF 30%, #FF629E 65%, #FF6220 100%);
+  width: 100%;
+}
+
+@media (min-width: 1024px) {
+  .customer-stories-showcase {
+    max-width: 1200px; /* Spec: Layout width 1,200px */
+    height: 770px;     /* Spec: Layout height 770px */
+    margin-left: auto;
+    margin-right: auto;
+    padding: 3.5rem 3rem 2.5rem 3rem;
+  }
+}
+
+/* ==========================================================================
+   Carousel and Drag Frame
+   ========================================================================== */
+
+.customer-stories-carousel {
+  position: relative;
+  width: 100%;
+  height: 480px;
+  overflow: hidden;
+  user-select: none;
+}
+
+@media (min-width: 1024px) {
+  .customer-stories-carousel {
+    height: 570px; /* Centered layout containing the larger 546px high card nicely */
+  }
+}
+
+/* ==========================================================================
+   Customer Story Cards
+   ========================================================================== */
+
+.customer-story-card {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 290px;
+  height: 410px;
+  background-color: var(--color-brand-white);
+  border-radius: 16px; /* Spec: Radius: 16px */
+  padding: 24px;       /* Spec: Padding: 24px */
+  display: flex;
+  flex-direction: column;
+  gap: 32px;           /* Spec: Gap: 32px */
+  
+  /* Spec shadow: X:0, Y:0, Blur:60, Spread:0, Color: #000000 25% */
+  box-shadow: 0 0 60px rgba(0, 0, 0, 0.25);
+  
+  cursor: grab;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.4s ease;
+}
+
+.customer-story-card:active {
+  cursor: grabbing;
+}
+
+@media (min-width: 480px) {
+  .customer-story-card {
+    width: 320px;
+    height: 420px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .customer-story-card {
+    width: 616px;  /* Spec: Fixed width 616px */
+    height: 546px; /* Spec: Hug height 546px */
+    padding: 32px;
+  }
+}
+
+/* ==========================================================================
+   Card Internals
+   ========================================================================== */
+
+.customer-story-logo-box {
+  background-color: #F5F6F8; /* Light gray box backdrop from Image 2 */
+  border-radius: 12px;
+  height: 90px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-md);
+}
+
+@media (min-width: 1024px) {
+  .customer-story-logo-box {
+    height: 140px;
+  }
+}
+
+.customer-story-metrics {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  flex-grow: 1;
+}
+
+.customer-story-metric-row {
+  display: flex;
+  align-items: center;
+  padding-top: 1.125rem;
+  padding-bottom: 1.125rem;
+  border-bottom: 1px solid #E5E7EB;
+}
+
+.customer-story-metric-row:last-child {
+  border-bottom: none;
+}
+
+.customer-story-metric-value {
+  font-family: var(--font-serif);
+  font-size: 2.25rem; /* text-4xl */
+  font-weight: 400;
+  color: var(--color-brand-charcoal);
+  width: 35%;
+  flex-shrink: 0;
+  line-height: 1;
+}
+
+@media (min-width: 1024px) {
+  .customer-story-metric-value {
+    font-size: 3.5rem; /* Large beautiful serif stats as in reference image */
+  }
+}
+
+.customer-story-metric-label {
+  font-family: var(--font-sans);
+  font-size: 0.875rem; /* text-sm */
+  color: var(--color-brand-gray-600);
+  line-height: 1.4;
+  width: 65%;
+  padding-left: var(--space-md);
+}
+
+@media (min-width: 1024px) {
+  .customer-story-metric-label {
+    font-size: 1.05rem;
+  }
+}
+
+/* ==========================================================================
+   Interactive Progress Track (Figma Spec: 196px x 8px)
+   ========================================================================== */
+
+.customer-stories-progress-track {
+  position: relative;
+  width: 196px; /* Spec: 196px track width */
+  height: 8px;  /* Spec: 8px track height */
+  background-color: rgba(255, 255, 255, 0.25);
+  border-radius: 9999px;
+  margin-top: 2rem;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  overflow: hidden;
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.customer-stories-track-step {
+  flex: 1;
+  height: 100%;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  z-index: 10;
+  outline: none;
+}
+
+.customer-stories-track-thumb {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  background-color: #FFFFFF;
+  border-radius: 9999px;
+  z-index: 5;
+  pointer-events: none;
+}

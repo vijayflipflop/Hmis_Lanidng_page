@@ -8,25 +8,9 @@ import { motion } from 'motion/react';
 import { Sparkles, Calendar, ArrowRight } from 'lucide-react';
 import { Heading } from '../../components/ui/Heading';
 import { Button } from '../../components/ui/Button';
-import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
-
 // @ts-expect-error - image asset type declaration may be missing
 import heroSurgeonsImg from '../../assets/images/hero_image.png';
-
-gsap.registerPlugin(ScrollTrigger);
-
-function parseStatValue(valStr: string) {
-  // Matches any potential decimal number followed by trailing suffix characters (such as m+, M+, +, %)
-  const match = valStr.match(/^([\d.]+)(.*)$/);
-  if (!match) return { num: 0, suffix: '', decimals: 0 };
-  
-  const num = parseFloat(match[1]);
-  const suffix = match[2] || '';
-  const decimals = match[1].includes('.') ? match[1].split('.')[1].length : 0;
-  
-  return { num, suffix, decimals };
-}
+import { AnimatedCounter } from '../../components/common/AnimatedCounter';
 
 interface CounterStatProps {
   key?: React.Key;
@@ -37,56 +21,14 @@ interface CounterStatProps {
 }
 
 function CounterStat({ value, label, id, labelId }: CounterStatProps) {
-  const elementRef = useRef<HTMLSpanElement>(null);
-  
-  useEffect(() => {
-    if (!elementRef.current) return;
-    
-    const { num, suffix, decimals } = parseStatValue(value);
-    
-    // Check for prefers-reduced-motion
-    const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
-    if (mediaQuery.matches) {
-      elementRef.current.textContent = value;
-      return;
-    }
-    
-    const obj = { val: 0 };
-    
-    const ctx = gsap.context(() => {
-      gsap.to(obj, {
-        val: num,
-        duration: 2.5, // 2-3 seconds as specified
-        ease: 'power2.out',
-        scrollTrigger: {
-          trigger: elementRef.current,
-          start: 'top 95%', // Detect when it enters viewport from bottom
-          toggleActions: 'play none none none', // Trigger once, do not re-trigger on scroll back
-          once: true,
-        },
-        onUpdate: () => {
-          if (elementRef.current) {
-            elementRef.current.textContent = obj.val.toFixed(decimals) + suffix;
-          }
-        }
-      });
-    });
-    
-    return () => {
-      ctx.revert();
-    };
-  }, [value]);
-
   return (
     <div className="flex flex-col justify-center px-4">
-      <span 
-        ref={elementRef}
-        className="text-4xl md:text-5xl font-serif text-white block tracking-tight font-medium" 
+      <AnimatedCounter
+        value={value}
+        className="text-5xl text-white block"
         id={id}
-      >
-        0
-      </span>
-      <span className="text-white/80 text-body-xs font-sans tracking-wide mt-2 block leading-snug" id={labelId}>
+      />
+      <span className="text-white/80 text-xl mt-2 block" id={labelId}>
         {label}
       </span>
     </div>
@@ -111,7 +53,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: -8 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="text-body-sm md:text-[20px] font-sans font-normal text-brand-blue text-center"
+            className="text-3xl text-brand-blue text-center"
             id="hero-badge"
           >
             AI-Powered Healthcare Infrastructure
@@ -131,7 +73,7 @@ export default function Hero() {
               className="hero-title text-center"
             >
               One Intelligent Platform for Modern <br />
-              <span className="italic font-normal block mt-2 text-brand-charcoal">
+              <span className="italic block mt-2 text-brand-charcoal">
                 Healthcare Operations.
               </span>
             </Heading>
@@ -142,7 +84,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="mt-6 text-brand-gray-700 text-body-lg max-w-[1000px] mx-auto leading-relaxed font-sans"
+            className="mt-6 text-brand-gray-700 text-2xl max-w-[1000px] mx-auto"
             id="hero-description"
           >
             HealthMed helps hospitals, clinics, and healthcare teams manage patient care, diagnostics, billing, pharmacy, and operations through one connected healthcare management system.

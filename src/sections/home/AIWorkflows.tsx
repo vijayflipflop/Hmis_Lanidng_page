@@ -68,7 +68,7 @@ export default function AIWorkflows() {
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#10B981] opacity-75"></span>
                   <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-[#10B981]"></span>
                 </span>
-                <span className="text-xs font-semibold text-brand-black tracking-tight leading-none font-sans">
+                <span className="text-brand-black">
                   Analysis Active: Radiology Suite
                 </span>
               </motion.div>
@@ -86,7 +86,7 @@ export default function AIWorkflows() {
                     <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
                   </svg>
                 </div>
-                <span className="text-xs font-semibold text-brand-black tracking-tight leading-none font-sans">
+                <span className="text-brand-black">
                   Processing MRI Data...
                 </span>
               </motion.div>
@@ -111,20 +111,20 @@ export default function AIWorkflows() {
             </div>
 
             {/* Display Headings exactly matching reference image typography */}
-            <h2 className="text-4xl md:text-5xl font-serif font-normal text-brand-black tracking-tight leading-[1.12]" id="ai-main-title">
+            <h2 className="text-5xl text-brand-black" id="ai-main-title">
               Smarter Healthcare Workflows <br />
-              <span className="font-serif italic text-brand-gray-700 font-light">with</span> AI
+              <span className="italic text-brand-gray-700">with</span> AI
             </h2>
 
             {/* Sub description */}
-            <p className="text-brand-gray-600 text-sm md:text-base leading-relaxed max-w-lg" id="ai-paragraph">
+            <p className="text-brand-gray-600 text-xl max-w-lg" id="ai-paragraph">
               HealthMed leverages intelligent automation and AI-powered insights to help healthcare organizations optimize workflows, improve resource planning, and reduce operational inefficiencies.
             </p>
 
             {/* Point listings checkmarks */}
             <div className="flex flex-col space-y-4 pt-2" id="ai-list">
               {points.map((point, index) => (
-                <div key={index} className="flex items-center gap-3 text-sm font-semibold text-brand-black" id={`ai-point-${index}`}>
+                <div key={index} className="flex items-center gap-3 text-brand-black" id={`ai-point-${index}`}>
                   <div className="text-[#0066FF] flex-shrink-0" id={`ai-check-icon-${index}`}>
                     <svg className="w-5 h-5 fill-current text-[#0066FF]" viewBox="0 0 24 24">
                       <circle cx="12" cy="12" r="10" />
@@ -138,7 +138,7 @@ export default function AIWorkflows() {
                       />
                     </svg>
                   </div>
-                  <span className="text-brand-gray-750 font-medium tracking-tight text-base">{point}</span>
+                  <span className="text-brand-gray-750 text-xl-medium">{point}</span>
                 </div>
               ))}
             </div>

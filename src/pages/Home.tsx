@@ -10,13 +10,16 @@ import Hero from '../sections/home/Hero';
 import Partners from '../sections/home/Partners';
 
 // Below-the-fold sections are dynamically imported to maximize LightHouse performance scores and page initialization
+const Modules = lazy(() => import('../sections/home/Modules'));
 const WhyChooseUs = lazy(() => import('../sections/home/WhyChooseUs'));
 const EcosystemHub = lazy(() => import('../sections/home/EcosystemHub'));
 const Products = lazy(() => import('../sections/home/Products'));
 const Features = lazy(() => import('../sections/home/Features'));
 const AIWorkflows = lazy(() => import('../sections/home/AIWorkflows'));
 const Impact = lazy(() => import('../sections/home/Impact'));
+const CustomerStories = lazy(() => import('../sections/home/CustomerStories'));
 const Testimonials = lazy(() => import('../sections/home/Testimonials'));
+const VideoTestimonials = lazy(() => import('../sections/home/VideoTestimonials'));
 const FAQ = lazy(() => import('../sections/home/FAQ'));
 const ModernizeCTA = lazy(() => import('../sections/home/ModernizeCTA'));
 
@@ -32,6 +35,10 @@ export default function Home() {
         
         <Suspense fallback={<div className="bg-brand-bg w-full min-h-[500px] border-b border-brand-gray-100" />}>
           <Partners />
+        </Suspense>
+        
+        <Suspense fallback={<div className="bg-brand-bg w-full min-h-[500px] border-b border-brand-gray-100" />}>
+          <Modules />
         </Suspense>
         
         <Suspense fallback={<div className="bg-brand-bg w-full min-h-[500px] border-b border-brand-gray-100" />}>
@@ -58,8 +65,16 @@ export default function Home() {
           <Impact />
         </Suspense>
 
+        <Suspense fallback={<div className="bg-brand-bg w-full min-h-[500px] border-b border-brand-gray-200" />}>
+          <CustomerStories />
+        </Suspense>
+
         <Suspense fallback={<div className="bg-brand-gray-50 w-full min-h-[500px] border-b border-brand-gray-200" />}>
           <Testimonials />
+        </Suspense>
+
+        <Suspense fallback={<div className="bg-[#F8F9FA] w-full min-h-[500px] border-b border-brand-gray-200" />}>
+          <VideoTestimonials />
         </Suspense>
 
         <Suspense fallback={<div className="bg-brand-bg w-full min-h-[500px] border-b border-brand-gray-100" />}>
