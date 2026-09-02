@@ -23,7 +23,7 @@ export default function ModernizeCTA() {
         
         {/* Dark nested banner card framed inside the warm cream background */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={false}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}

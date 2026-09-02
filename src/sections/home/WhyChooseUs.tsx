@@ -29,7 +29,7 @@ export default function WhyChooseUs() {
           
           {/* Left Column: Text and bullet listings (takes 7 columns in desktop for beautiful spacing) */}
           <motion.div
-            initial={{ opacity: 0, y: 15 }}
+            initial={false}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
@@ -71,7 +71,7 @@ export default function WhyChooseUs() {
 
           {/* Right Column: Exact Photographic Illustration representing neon shield clinical doctor (takes 5 columns) */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.98 }}
+            initial={false}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}

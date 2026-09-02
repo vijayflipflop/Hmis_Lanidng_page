@@ -100,7 +100,7 @@ export default function EcosystemHub() {
             
             {/* 1. Hospitals (Top-Left Position) */}
             <motion.div
-              initial={{ opacity: 0, scale: 0.95 }}
+              initial={false}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               className="absolute top-4 left-2 md:top-[12%] md:left-[8%] bg-white rounded-2xl py-3 px-5 shadow-sm border border-brand-gray-100/50 flex items-center gap-3.5 cursor-pointer group select-none"
@@ -114,7 +114,7 @@ export default function EcosystemHub() {
 
             {/* 2. Diagnostics (Top-Right Position) */}
             <motion.div
-              initial={{ opacity: 0, scale: 0.95 }}
+              initial={false}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               className="absolute top-4 right-2 md:top-[12%] md:right-[8%] bg-white rounded-2xl py-3 px-5 shadow-sm border border-brand-gray-100/50 flex items-center gap-3.5 cursor-pointer group select-none"
@@ -128,7 +128,7 @@ export default function EcosystemHub() {
 
             {/* 3. Pharmacies (Bottom-Left Position) */}
             <motion.div
-              initial={{ opacity: 0, scale: 0.95 }}
+              initial={false}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               className="absolute bottom-4 left-2 md:bottom-[12%] md:left-[8%] bg-white rounded-2xl py-3 px-5 shadow-sm border border-brand-gray-100/50 flex items-center gap-3.5 cursor-pointer group select-none"
@@ -142,7 +142,7 @@ export default function EcosystemHub() {
 
             {/* 4. Care Teams (Bottom-Right Position) */}
             <motion.div
-              initial={{ opacity: 0, scale: 0.95 }}
+              initial={false}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               className="absolute bottom-4 right-2 md:bottom-[12%] md:right-[8%] bg-white rounded-2xl py-3 px-5 shadow-sm border border-brand-gray-100/50 flex items-center gap-3.5 cursor-pointer group select-none"

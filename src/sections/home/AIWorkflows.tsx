@@ -21,7 +21,7 @@ export default function AIWorkflows() {
           
           {/* Left Column: Visual AI Graphic Mockup */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.96 }}
+            initial={false}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
@@ -59,7 +59,7 @@ export default function AIWorkflows() {
 
               {/* Floating Badge 1 (Top Right): Analysis Active */}
               <motion.div
-                initial={{ opacity: 0, y: 15, x: 10 }}
+                initial={false}
                 animate={{ opacity: 1, y: 0, x: 0 }}
                 transition={{ delay: 0.3, duration: 0.6 }}
                 className="absolute top-12 right-[-10px] md:right-3 bg-white rounded-2xl py-3 px-4.5 shadow-[0_12px_36px_rgba(0,0,0,0.06)] border border-brand-gray-100 flex items-center gap-2.5 z-20 cursor-default select-none rotate-[4deg]"
@@ -76,7 +76,7 @@ export default function AIWorkflows() {
 
               {/* Floating Badge 2 (Bottom Left): Processing MRI Data */}
               <motion.div
-                initial={{ opacity: 0, y: -15, x: -10 }}
+                initial={false}
                 animate={{ opacity: 1, y: 0, x: 0 }}
                 transition={{ delay: 0.45, duration: 0.6 }}
                 className="absolute bottom-12 left-[-10px] md:left-3 bg-white rounded-2xl py-3 px-4.5 shadow-[0_12px_36px_rgba(0,0,0,0.06)] border border-brand-gray-100 flex items-center gap-2.5 z-20 cursor-default select-none rotate-[-2deg]"
@@ -97,7 +97,7 @@ export default function AIWorkflows() {
 
           {/* Right Column: AI-focused check list */}
           <motion.div
-            initial={{ opacity: 0, x: 30 }}
+            initial={false}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}

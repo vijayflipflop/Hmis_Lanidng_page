@@ -19,21 +19,21 @@
     <link rel="manifest" href="/manifest.json" />
     <meta name="theme-color" content="#2271e8" />
     
-    <link rel="icon" type="image/png" href="./src/assets/images/logo-1.png" />
+    <link rel="icon" type="image/png" href="/logo-1.png" />
 
     <!-- Open Graph Graph Tags -->
     <meta property="og:title" content="HealthMed | Connected Healthcare Intelligence & Operations Platform" />
     <meta property="og:description" content="Optimize clinical and administrative workflows, patient records, billing, and diagnostics through one modern, unified connected healthcare platform." />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://healthmedtechnologies.com/" />
-    <meta property="og:image" content="https://healthmedtechnologies.com/assets/images/logo.png" />
+    <meta property="og:image" content="https://healthmedtechnologies.com/logo.png" />
     <meta property="og:site_name" content="HealthMed" />
 
     <!-- Twitter Card Graph Tags -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="HealthMed | Connected Healthcare Intelligence & Operations Platform" />
     <meta name="twitter:description" content="Optimize clinical and administrative workflows using HealthMed's unified cloud-based intelligent system." />
-    <meta name="twitter:image" content="https://healthmedtechnologies.com/assets/images/logo.png" />
+    <meta name="twitter:image" content="https://healthmedtechnologies.com/logo.png" />
 
     <!-- Performance: Preconnect & Preload Critical Google Fonts and Hero Assets -->
     <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
@@ -43,7 +43,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
     
     <!-- Preloading Hero Image directly for faster LCP/FCP rendering -->
-    <link rel="preload" href="./src/assets/images/hero.png" as="image" type="image/png" fetchpriority="high" />
+    <link rel="preload" href="/hero.png" as="image" type="image/png" fetchpriority="high" />
 
     <!-- Structured Data (JSON-LD Schemas) -->
     <script type="application/ld+json">
@@ -202,6 +202,44 @@
         background: #ced4da;
       }
     </style>
+    <noscript>
+      <style>
+        /* Fallback CSS ensuring 100% visibility of all texts, buttons, images, and layouts without JavaScript */
+        [style*="opacity: 0"], [style*="opacity:0"] {
+          opacity: 1 !important;
+        }
+        [style*="visibility: hidden"], [style*="visibility:hidden"] {
+          visibility: visible !important;
+        }
+        #hero-actions, #hero-badge, #hero-heading, #hero-description, #hero-image-block,
+        #whychooseus-text-panel, #whychooseus-graphic-panel,
+        #ai-graphic-block, #ai-content-block, #floating-badge-top, #floating-badge-bottom,
+        #modernize-cta-banner, #features-grid, #products-grid, #ecosystem-satellites {
+          opacity: 1 !important;
+          transform: none !important;
+        }
+        #customer-stories-showcase-box {
+          overflow-x: auto !important;
+        }
+        #customer-stories-carousel-viewport {
+          height: auto !important;
+          min-height: 560px !important;
+          display: flex !important;
+          flex-direction: row !important;
+          gap: 1.5rem !important;
+          overflow-x: auto !important;
+          padding: 1.5rem 1rem !important;
+        }
+        #customer-stories-carousel-viewport > div {
+          position: relative !important;
+          top: 0 !important;
+          left: 0 !important;
+          transform: none !important;
+          flex-shrink: 0 !important;
+          opacity: 1 !important;
+        }
+      </style>
+    </noscript>
   </head>
   <body class="bg-[#ffffffff] text-[#191c1fff] antialiased selection:bg-[#2271e8ff] selection:text-[#ffffffff]">
     <!-- Google Tag Manager (noscript) -->

@@ -257,8 +257,13 @@ export default function CustomerStories() {
                   style={{
                     position: 'absolute',
                     top: '50%',
+                    left: position.left,
+                    transform: `translate(${position.x}, -50%) scale(${position.scale})`,
+                    opacity: position.opacity,
+                    zIndex: position.zIndex,
                     pointerEvents: position.pointerEvents,
                   }}
+                  initial={false}
                   animate={{
                     left: position.left,
                     x: position.x,

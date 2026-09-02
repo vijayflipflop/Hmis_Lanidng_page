@@ -122,7 +122,7 @@ export default function Modules() {
           >
             <motion.div
               key={activeTab.id} 
-              initial={{ opacity: 0, y: 8 }}
+              initial={false}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.35, ease: 'easeOut' }}
               className="grid grid-cols-1 lg:grid-cols-12 gap-[var(--space-xl-2xl)] lg:gap-[var(--spacing-4xl)] items-center"

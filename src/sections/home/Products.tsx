@@ -63,7 +63,7 @@ export default function Products() {
           {cards.map((card, idx) => (
             <motion.div
               key={card.id}
-              initial={{ opacity: 0, scale: 0.98, y: 15 }}
+              initial={false}
               whileInView={{ opacity: 1, scale: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: idx * 0.1 }}

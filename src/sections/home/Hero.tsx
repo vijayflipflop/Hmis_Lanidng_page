@@ -49,7 +49,7 @@ export default function Hero() {
         {/* Upper Accent Label - Plain text centering as shown in the reference */}
         <div className="flex justify-center mb-6">
           <motion.div
-            initial={{ opacity: 0, y: -8 }}
+            initial={false}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
             className="brand-text-3xl text-brand-blue text-center"
@@ -62,7 +62,7 @@ export default function Hero() {
         {/* Dynamic Display Headline */}
         <div className="text-center max-w-4xl mx-auto mb-8">
           <motion.div
-            initial={{ opacity: 0, y: 15 }}
+            initial={false}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
           >
@@ -80,7 +80,7 @@ export default function Hero() {
 
           {/* Subheading description */}
           <motion.p
-            initial={{ opacity: 0, y: 15 }}
+            initial={false}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
             className="mt-6 text-brand-gray-700 brand-text-3xl max-w-[1000px] mx-auto"
@@ -92,7 +92,7 @@ export default function Hero() {
 
         {/* Call to Actions CTA Buttons - Matches the exact neutral buttons in the layout */}
         <motion.div
-          initial={{ opacity: 0, y: 15 }}
+          initial={false}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.3 }}
           className="flex flex-wrap justify-center gap-4 mb-20"
@@ -116,7 +116,7 @@ export default function Hero() {
 
         {/* Hero Group Image Section with Stats Strip overlaid at the bottom */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={false}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.4 }}
           className="relative max-w-6xl mx-auto  overflow-hidden shadow-xl  bg-white group"
