@@ -10,7 +10,7 @@ import { customerStoriesData } from '../../data/customerStories';
 
 export default function CustomerStories() {
   const [activeIndex, setActiveIndex] = useState(0);
-  const [windowWidth, setWindowWidth] = useState(typeof window !== 'undefined' ? window.innerWidth : 1200);
+  const [windowWidth, setWindowWidth] = useState(1200);
 
   useEffect(() => {
     const handleResize = () => {

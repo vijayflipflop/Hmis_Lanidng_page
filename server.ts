@@ -17,7 +17,7 @@ async function createServer() {
     });
     app.use(vite.middlewares);
   } else {
-    const clientDistPath = path.resolve(process.cwd(), 'dist/client');
+    const clientDistPath = path.resolve(process.cwd(), 'dist');
     app.use(express.static(clientDistPath, { index: false }));
   }
 
@@ -47,8 +47,8 @@ async function createServer() {
         const serverModule = await vite.ssrLoadModule('/src/entry-server.tsx');
         render = serverModule.render;
       } else {
-        // In production: read built index.html from dist/client and load compiled SSR bundle
-        const indexPath = path.resolve(process.cwd(), 'dist/client/index.html');
+        // In production: read built index.html from dist and load compiled SSR bundle
+        const indexPath = path.resolve(process.cwd(), 'dist/index.html');
         template = fs.readFileSync(indexPath, 'utf-8');
         const serverBundlePath = path.resolve(process.cwd(), 'dist/server/entry-server.js');
         const serverModule = await import(serverBundlePath);

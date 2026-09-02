@@ -44,13 +44,19 @@ export default function Navbar() {
   }, [isOpen]);
 
   const location = useLocation();
+  const [activeHash, setActiveHash] = useState('');
+
+  useEffect(() => {
+    setActiveHash(location.hash || '');
+  }, [location.hash]);
+
   const isContactPage = location.pathname === '/contact';
   const isInsightsPage = location.pathname.startsWith('/insights') || location.pathname === '/blog';
   const isRelativeRedirect = isContactPage || isInsightsPage;
 
-  // Active states check
-  const isHomeActive = location.pathname === '/' && (!location.hash || location.hash === '#home');
-  const isAboutActive = location.pathname === '/' && location.hash === '#about';
+  // Active states check (uses activeHash initialized identically on SSR and initial client hydration)
+  const isHomeActive = location.pathname === '/' && (!activeHash || activeHash === '#home');
+  const isAboutActive = location.pathname === '/' && activeHash === '#about';
 
   const modules = [
     { label: 'Clinical Operations', href: isRelativeRedirect ? '/#products' : '#products' },
