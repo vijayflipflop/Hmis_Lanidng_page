@@ -364,7 +364,7 @@ export default function BlogDetails() {
                 <div className="flex items-center gap-4" id="social-share-buttons-container">
                   {/* X / Twitter Trigger */}
                   <a 
-                    href={`https://twitter.com/intent/tweet?url=${encodeURIComponent(window.location.href)}&text=${encodeURIComponent(activePost.title)}`}
+                    href={`https://twitter.com/intent/tweet?url=${encodeURIComponent(typeof window !== 'undefined' ? window.location.href : `https://healthmedtechnologies.com/insights/${slug || ''}`)}&text=${encodeURIComponent(activePost.title)}`}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-brand-charcoal hover:text-brand-blue-accent transition-colors p-1"
@@ -378,7 +378,7 @@ export default function BlogDetails() {
 
                   {/* Facebook Trigger */}
                   <a 
-                    href={`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(window.location.href)}`}
+                    href={`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(typeof window !== 'undefined' ? window.location.href : `https://healthmedtechnologies.com/insights/${slug || ''}`)}`}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-brand-charcoal hover:text-brand-blue-accent transition-colors p-1"
@@ -390,7 +390,7 @@ export default function BlogDetails() {
 
                   {/* LinkedIn Trigger */}
                   <a 
-                    href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(window.location.href)}`}
+                    href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(typeof window !== 'undefined' ? window.location.href : `https://healthmedtechnologies.com/insights/${slug || ''}`)}`}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-brand-charcoal hover:text-brand-blue-accent transition-colors p-1"

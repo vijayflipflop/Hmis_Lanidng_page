@@ -7,14 +7,12 @@ import React from 'react';
 import { FaWhatsapp } from 'react-icons/fa';
 
 export default function WhatsAppFloat() {
-  const handleClick = () => {
-    window.open('https://wa.me/917550002160', '_blank');
-  };
-
   return (
-    <button
-      onClick={handleClick}
-      className="fixed bottom-6 right-6 md:bottom-8 md:right-8 z-[9999] group flex items-center justify-center p-0 border-0 rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#25D366] select-none cursor-pointer transition-transform duration-300 ease-out hover:scale-[1.08] active:scale-95 animate-whatsapp-float"
+    <a
+      href="https://wa.me/917550002160"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="fixed bottom-6 right-6 md:bottom-8 md:right-8 z-[9999] group flex items-center justify-center p-0 border-0 rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#25D366] select-none cursor-pointer transition-transform duration-300 ease-out hover:scale-[1.08] active:scale-95 animate-whatsapp-float no-underline"
       id="whatsapp-floating-button"
       aria-label="Contact us on WhatsApp"
     >
@@ -27,6 +25,6 @@ export default function WhatsAppFloat() {
           <FaWhatsapp />
         </span>
       </div>
-    </button>
+    </a>
   );
 }
